@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello World")
+	fmt.Println("Hello Folks to the world of GPT-3")
 
 	godotenv.Load()
 
