@@ -24,7 +24,7 @@ func main() {
 	client := gpt3.NewClient(apikey)
 
 	resp, err := client.Completion(ctx, gpt3.CompletionRequest{
-		Prompt:    []string{"The benefits of "},
+		Prompt:    []string{"one tweet on golang is: "},
 		MaxTokens: gpt3.IntPtr(30),
 		Stop:      []string{"."},
 		Echo:      true,
