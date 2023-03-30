@@ -4,8 +4,6 @@ import (
 	"context"
 	"fmt"
 	"log"
-
-	"log"
 	"os"
 
 	"github.com/PullRequestInc/go-gpt3"
@@ -24,5 +22,18 @@ func main() {
 
 	ctx := context.Background()
 	client := gpt3.NewClient(apikey)
+
+	resp, err := client.Completion(ctx, gpt3.CompletionRequest{
+		Prompt:    []string{"The benefits of "},
+		MaxTokens: gpt3.IntPtr(30),
+		Stop:      []string{"."},
+		Echo:      true,
+	})
+
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println(resp.Choices[0].Text)
 
 }
